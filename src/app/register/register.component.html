@@ -1,0 +1,56 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h4>Register New User</h4>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <mat-input-container>
+      <input [(ngModel)]="registerData.email" name="email" matInput placeholder="email"
+                                  type="email" autocomplete="email" [formControl]="emailFormControl"
+             [errorStateMatcher]="matcher"/>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-input-container>
+
+      <mat-input-container><input [(ngModel)]="registerData.pwd" name="password" matInput placeholder="password"
+                                  type="password" autocomplete="current-password"[formControl]="passwordFormControl"
+                                  [errorStateMatcher]="matcher"/>
+        <mat-error *ngIf="!passwordFormControl.hasError('minLength') && !passwordFormControl.hasError('required')">
+          Password length should be at least 6 characters
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+         Password is <strong>required</strong>
+        </mat-error>
+      </mat-input-container>
+      <mat-input-container><input [(ngModel)]="registerData.name" name="name" matInput placeholder="name"autocomplete="name"[formControl]="nameFormControl"
+                                  [errorStateMatcher]="matcher"/>
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-input-container>
+      <mat-form-field>
+      <mat-select placeholder="Roles" [(ngModel)]="registerData.roles" [formControl]="rolesFormControl" multiple>
+        <mat-select-trigger>
+          {{rolesFormControl.value ? rolesFormControl.value[0] : ''}}
+          <span *ngIf="rolesFormControl.value?.length > 1">
+        (+{{rolesFormControl.value.length - 1}} others)
+      </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let role of rolesList" [value]="role">{{role}}</mat-option>
+      </mat-select>
+        </mat-form-field>
+      <br>
+      <mat-input-container style="width: 100%"><textarea [(ngModel)]="registerData.description" name="description" matInput placeholder="description">
+      </textarea></mat-input-container><br>
+      <button [disabled]="!isValidForm()" (click)="post()" (click)="openSnackBar()" mat-raised-button color="primary" routerLink="/">Register</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+

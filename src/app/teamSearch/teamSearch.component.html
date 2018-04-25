@@ -1,0 +1,74 @@
+<div class="ts-main-block row  ">
+  <div class="col-4 search-options rounded-top">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-warning" type="button">Search</button>
+      </div>
+    </div>
+
+    <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-warning active">
+        <input type="checkbox" name="options" id="option1" autocomplete="off" checked> filter1
+      </label>
+      <label class="btn btn-warning">
+        <input type="checkbox" name="options" id="option2" autocomplete="off"> filter2
+      </label>
+      <label class="btn btn-warning">
+        <input type="checkbox" name="options" id="option3" autocomplete="off"> filter3
+      </label>
+    </div>
+  </div>
+
+  <!--PANELS WITH TEAMS -->
+
+  <div class="col-7 teams-list">
+
+    <div *ngFor="let team of apiService.teams" class="team-panel border border-dark rounded ">
+      <div class="team-panel-top row justify-content-between">
+        <div class="col-4"><img class=" mr-3 rounded" src="../../assets/images/avatar.jpg" alt="Generic placeholder image">
+          <span class="ts-name" [routerLink]="['/team', team._id]" style="cursor: pointer">{{team.teamTitle}}</span></div>
+
+        <button type="button" class="btn btn-warning btn-sm col-2 ">Apply</button>
+      </div>
+      <div class="team-about border-bottom border-dark"> About:
+        <div>{{team.description}}</div>
+      </div>
+      <div class="roles-needed">
+        <span class="">Roles needed: </span>
+        <div class="roles-list row justify-content-center">
+
+          <div class="skill-sm col-2 border rounded">
+            <div style="text-align: center;">
+              <i class="fab fa-python fa-5x"></i>
+              <div class="skill-name">Python master</div>
+            </div>
+          </div>
+
+          <div class="skill-sm col-2 border rounded">
+            <div style="text-align: center;">
+              <i class="fab fa-python fa-5x"></i>
+              <div class="skill-name">Python master</div>
+            </div>
+          </div>
+
+          <div class="skill-sm col-2 border rounded">
+            <div style="text-align: center;">
+              <i class="fab fa-python fa-5x"></i>
+              <div class="skill-name">Python master</div>
+            </div>
+          </div>
+
+          <div class="skill-sm col-2 border rounded">
+            <div style="text-align: center;">
+              <i class="fab fa-python fa-5x"></i>
+              <div class="skill-name">Python master</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

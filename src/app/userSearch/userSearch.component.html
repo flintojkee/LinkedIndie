@@ -1,0 +1,40 @@
+<div class="us-main-block row  ">
+
+  <div class="col-4 search-options rounded-top">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-warning" type="button">Search</button>
+      </div>
+    </div>
+
+    <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-warning active">
+        <input type="checkbox" name="options" id="option1" autocomplete="off" checked> filter1
+      </label>
+      <label class="btn btn-warning">
+        <input type="checkbox" name="options" id="option2" autocomplete="off"> filter2
+      </label>
+      <label class="btn btn-warning">
+        <input type="checkbox" name="options" id="option3" autocomplete="off"> filter3
+      </label>
+    </div>
+  </div>
+
+  <!--PANELS WITH USERS -->
+  <div class="col-7 users-list" *ngFor="let user of apiService.users">
+
+    <div class="user-panel border border-dark rounded ">
+      <div class="user-panel-top row justify-content-between">
+        <div class="col-4"><img class=" mr-3 rounded" src="../../assets/images/avatar.jpg" alt="Generic placeholder image">
+          <span class="us-username"[routerLink]="['/profile', user._id]" style="cursor: pointer;">{{user.name}}</span></div>
+
+        <button type="button" class="btn btn-warning btn-sm col-2 ">Message</button>
+      </div>
+      <div class="role">
+        <div class="border border-dark rounded "*ngFor="let role of user.roles"><span class="label rounded-left" >Role:</span><span class="p-info"> {{role}}</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>

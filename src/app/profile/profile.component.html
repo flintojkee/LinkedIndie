@@ -1,0 +1,165 @@
+<!--   Here is a left-bar menu of the user -->
+<div class=" col left-bar position-fixed">
+  <div class="row top"></div>
+
+  <div class="row cur-project">
+    <button type="button" class="col btn btn-dark" disabled>{{profile?.name}}</button></div>
+  <ul class="list-group list-group-flush row">
+    <li class="list-group-item border-0" >Your profile</li>
+    <li class="list-group-item border-0">Your projects</li>
+    <li class="list-group-item border-0">Favourites</li>
+  </ul>
+  <div class="row logout">
+    <button type="button" class=" btn  btn-outline-dark btn-sm">logout</button></div>
+
+</div>
+
+<div class="container-fluid up-container">
+
+  <!-- Here is the main part of users page -->
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class = " main-block col">
+        <div class="row">
+          <div class="col avatar-block ">
+            <img src="../../assets/images/shrooms.jpg" class="img-fluid rounded-top" alt="Responsive image">
+          </div>
+        </div>
+
+        <div class="user-title  border border-dark rounded-bottom">
+          <div>  <span class="user-name"> Paranoid Android</span><span class="online">online <i class="fas fa-circle fa-xs"></i></span></div>
+          <div class="user-signature"> When I am king, you will be first against the wall</div>
+        </div>
+
+
+        <div class="row infopanels">
+          <div class="info-panel col-4  ">
+            <div class="border border-dark rounded "*ngFor="let role of profile.roles"><span class="label rounded-left" >Role:</span><span class="p-info"> {{role}}</span></div>
+
+            <div class="border border-dark rounded about">
+              <span>About me:</span>
+              <div>Email: {{profile?.email}}</div>
+              <div>{{profile?.description}}</div>
+            </div>
+            <div class="border border-dark rounded about">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title><h4>Posts</h4></mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <messages-root></messages-root>
+              </mat-card-content>
+            </mat-card>
+            </div>
+
+          </div>
+
+          <!---------- PROJECTS PANEL --------->
+          <div class="col right-panel">
+            <div class="pr-panel border border-dark rounded">
+              <div style="text-align: center;"> <span class="pr-title rounded-top">Completed projects</span></div>
+              <ul class="list-group list-group-flush pr-list">
+                <li class="list-group-item border-0" >The adventures of a potato</li>
+                <li class="list-group-item border-0">God of war. Fan-game</li>
+                <li class="list-group-item border-0">Laba #7</li>
+              </ul>
+            </div>
+
+            <!-----------MAIN SKILLS PANEL------------>
+            <div>
+
+              <div class="sk-title text-center">Main skills</div>
+              <div class="sk-panel row border border-dark rounded">
+                <!--Skill blocks (hardcoded) -->
+                <div class="col-3 border rounded">
+                  <div style="text-align: center;">
+                    <i class="fab fa-python fa-7x"></i>
+                    <div class="skill-name">Python master</div>
+                  </div>
+                </div>
+                <div class="col-3 border rounded">
+                  <div style="text-align: center;">
+                    <i class="fas fa-paint-brush fa-7x"></i>
+                    <div class="skill-name ">Paint artist</div>
+                  </div>
+
+                </div>
+                <div class="col-3 border rounded">
+                  <div style="text-align: center;">
+                    <i class="fas fa-music fa-7x"></i>
+                    <div class="skill-name">Skilled musician</div>
+                  </div>
+
+                </div>
+                <div class="col-3 border rounded">
+                  <div style="text-align: center;">
+                    <i class="fas fa-pencil-alt fa-7x"></i>
+
+                    <div class="skill-name"> Fanfic writer</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+            <!-----------SECONDARY SKILLS PANEL------------>
+            <div class="sk-title text-center">Secondary skills</div>
+            <div class="sk-panel row border border-dark rounded">
+              <!--Skill blocks (hardcoded) -->
+              <div class="col-2 border rounded">
+                <div style="text-align: center;"><i class="fab fa-java fa-3x"></i>
+                  <div class="skill-name">Java-koder</div>
+                </div>
+              </div>
+              <div class="col-2 border rounded">
+                <div style="text-align: center;"><i class="fab fa-js-square fa-3x"></i>
+                  <div class="skill-name">Js lover</div>
+                </div>
+
+              </div>
+              <div class="col-2 border rounded">
+                <div style="text-align: center;"><i class="fab fa-node-js fa-3x"></i>
+
+                  <div class="skill-name">Node-Js</div>
+                </div>
+              </div>
+              <div class="col-2 border rounded">
+                <div style="text-align: center;"><i class="fab fa-php fa-3x"></i>
+
+                  <div class="skill-name">Php magister</div>
+                </div>
+              </div>
+              <div class="col-2 border rounded">
+                <div style="text-align: center;"><i class="fab  fa-trello fa-3x"></i>
+
+                  <div class="skill-name">Trello user</div>
+                </div>
+              </div>
+              <div class="col-2 border rounded">
+                <div style="text-align: center;"><i class="far fa-edit fa-3x"></i>
+                  <div class="skill-name">Writes words</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!--FOOTER-->
+  <!--pretty raw-->
+
+  <div class="footer container-fluid " style="color:white">
+    Contact us
+    <i class="fab fa-telegram" ></i> <i class="fab fa-discord"></i>
+    <i class="fas fa-envelope"></i>
+  </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+

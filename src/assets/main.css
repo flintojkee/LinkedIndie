@@ -1,0 +1,283 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  background-color: #161616;
+}
+.navbar {
+  background-color: #232323;
+  z-index: 10;
+  position: fixed;
+  color: white;
+}
+
+.mat-form-field-label{
+  color: white;
+}
+.footer {
+  padding: 70px 70px 70px 20px;
+  background-color: #232323;
+}
+.up-container {
+  padding: 0;
+}
+.main-block {
+  margin-left: 170px;
+  color: white;
+}
+.left-bar {
+  max-width: 170px;
+  color: #f5f5f5;
+  background-color: #efb774;
+  font-size: 10px;
+  font-weight: bold;
+  height: 100%;
+}
+.top {
+  padding: 60px;
+}
+.circle {
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background: url("images/avatar.jpg") no-repeat 50% 50%;
+  margin-left: 5px;
+}
+.username-tab {
+  padding-bottom: 10px;
+}
+.cur-project {
+  margin-bottom: 10px;
+}
+.cur-project button {
+  border-radius: 0;
+}
+.list-group-item {
+  background-color: #dc3545;
+}
+.logout button {
+  margin-left: 5px;
+  margin-top: 150px;
+}
+.avatar-block {
+  padding-top: 30px;
+}
+.avatar-block img {
+  object-fit: none;
+  /* Do not scale the image */
+  object-position: center;
+  /* Center the image within the element */
+  width: 100%;
+  max-height: 200px;
+}
+.user-title {
+  text-align: center;
+  padding-bottom: 5px;
+}
+.user-name {
+  font-size: 36px;
+}
+.online {
+  color: #5fff40;
+  font-size: 10px;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 10px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.user-signature {
+  font-size: 13px;
+}
+.info-panels {
+  font-size: 14px;
+}
+.info-panel {
+  font-size: 10px;
+  padding: 0;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+.info-panel div {
+  padding: 10px;
+}
+.label {
+  background-color: #dc3545;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 4px;
+}
+.p-info {
+  font-size: 14px;
+}
+.about {
+  font-size: 14px;
+  margin-top: 30px;
+}
+.right-panel {
+  padding-left: 30px;
+}
+.pr-panel {
+  font-size: 10px;
+  padding: 0;
+  margin-top: 30px;
+}
+.pr-panel .list-group-item {
+  background-color: #232323;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+.pr-panel center {
+  padding: 5px;
+}
+.pr-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 5px;
+}
+.sk-title {
+  padding: 30px;
+  color: #dc3545;
+  font-weight: bold;
+}
+.sk-panel {
+  padding: 10px;
+}
+.sk-panel .col-3,
+.sk-panel .col-2 {
+  border-color: #161616 !important;
+  background-color: #232323;
+  padding: 10px;
+}
+.skill-name {
+  padding: 5px;
+}
+.up-container .footer {
+  margin-top: 30px;
+  padding-left: 180px;
+}
+.ts-container {
+  padding: 0;
+}
+.ts-container .footer {
+  padding-left: 190px;
+}
+.ts-main-block {
+  margin: 0;
+  padding-top: 64px;
+  padding-left: 170px;
+}
+.teams-list {
+  margin: 30px;
+}
+.team-panel {
+  margin-bottom: 30px;
+}
+.team-panel img {
+  max-width: 30px;
+  max-height: 30px;
+  object-fit: contain;
+}
+.team-panel-top {
+  background-color: #232323;
+  padding: 10px;
+  margin: 0;
+}
+.team-panel-top button {
+  color: white;
+}
+.ts-name {
+  color: #dc3545;
+  font-weight: bold;
+}
+.team-about {
+  font-size: 16px;
+}
+.team-about div {
+  font-size: 13px;
+}
+.roles-needed,
+.team-about {
+  padding: 2px;
+  padding-left: 4px;
+}
+.roles-needed span {
+  margin-right: 2px;
+  font-size: 13px;
+}
+.skill-sm {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.skill-sm .skill-name {
+  font-size: 12px;
+}
+.roles-list {
+  padding: 15px 5px 5px;
+  margin: 0;
+}
+.tp-container {
+  padding: 0;
+}
+.tp-container .footer {
+  padding-left: 180px;
+}
+.tp-main-block {
+  padding-left: 180px;
+}
+.top-panel {
+  margin: 10px;
+}
+.tp-avatar-panel img {
+  object-fit: none;
+  /* Do not scale the image */
+  object-position: center;
+  /* Center the image within the element */
+  width: 100%;
+  max-height: 200px;
+}
+.us-container {
+  padding: 0;
+}
+.us-container .footer {
+  padding-left: 180px;
+}
+.us-main-block {
+  margin: 0;
+  padding-top: 64px;
+}
+.search-options {
+  margin-top: 30px;
+  background-color: #232323;
+  padding: 15px;
+}
+.users-list {
+  margin: 0;
+}
+.user-panel {
+  margin-bottom: 30px;
+}
+.user-panel img {
+  max-width: 30px;
+  max-height: 30px;
+  object-fit: contain;
+}
+.user-panel-top {
+  background-color: #232323;
+  padding: 10px;
+  margin: 0;
+}
+.team-panel-top button {
+  color: white;
+}
+.ts-name {
+  color: #dc3545;
+  font-weight: bold;
+}
+.role {
+  padding: 5px 5px 5px 1px;
+}
+.role span {
+  margin-right: 5px;
+  font-size: 15px;
+}
