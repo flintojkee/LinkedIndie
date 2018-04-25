@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "preinstall": "npm install -g @angular/cli",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -35,11 +35,11 @@
     "jwt-simple": "^0.5.1",
     "mongoose": "^5.0.12",
     "mongoose-unique-validator": "^2.0.0",
-    "nodemon": "^1.17.3"
+    "nodemon": "^1.17.3",
+    "@angular/cli": "~1.7.3",
+    "@angular/compiler-cli": "^5.2.0"
   },
   "devDependencies": {
-    "@angular/cli": "~1.7.3",
-    "@angular/compiler-cli": "^5.2.0",
     "@angular/language-service": "^5.2.0",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
