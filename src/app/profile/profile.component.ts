@@ -10,7 +10,7 @@ import { ActivatedRoute } from "@angular/router"
 export class ProfileComponent {
   constructor(public apiService: ApiService, public route: ActivatedRoute) {}
 
-  profile = {}
+  profile :any;
   ngOnInit(){
     let id = this.route.snapshot.params.id;
     this.apiService.getProfile(id).subscribe(data =>
