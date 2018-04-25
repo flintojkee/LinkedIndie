@@ -15,7 +15,7 @@ export class AuthService {
 
 
   registerUser(registerData){
-    this.http.post<any>('http://localhost:80/register',registerData)
+    this.http.post<any>('/register',registerData)
       .pipe(
         catchError(this.handleError)
       )
@@ -43,7 +43,7 @@ export class AuthService {
   }
 
   loginUser(loginData){
-    this.http.post<any>('http://localhost:80/login',loginData)
+    this.http.post<any>('/login',loginData)
       .subscribe(res => {
       this.saveToken(res.token);
       this.saveId(res.userId);
