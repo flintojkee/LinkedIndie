@@ -32,7 +32,6 @@ body {
   width: 30px;
   height: 30px;
   background-size: contain;
-  background: url("../images/avatar.jpg") no-repeat 50% 50%;
   margin-left: 5px;
 }
 .username-tab {
