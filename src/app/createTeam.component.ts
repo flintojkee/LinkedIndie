@@ -23,7 +23,7 @@ import {ApiService} from "./api.service"
 })
 export class CreateTeamComponent {
   constructor(public apiService: ApiService){}
-  teamData: any;
+  teamData = {}
   createTeam(){
     this.apiService.createTeam(this.teamData);
   }

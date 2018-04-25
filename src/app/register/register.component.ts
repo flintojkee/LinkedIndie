@@ -19,7 +19,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['register.component.css']
 })
 export class RegisterComponent {
-  registerData: any;
+  registerData = {}
 
   constructor(public authService: AuthService, public snackBar: MatSnackBar) {
   }

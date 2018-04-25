@@ -11,7 +11,7 @@ export class TeamComponent {
   constructor(public apiService: ApiService, public route: ActivatedRoute){}
 
   team: any;
-  teamLead: any;
+  teamLead= {}
 
   ngOnInit(){
     let id = this.route.snapshot.params.id;
