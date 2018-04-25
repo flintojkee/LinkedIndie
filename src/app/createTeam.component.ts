@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ApiService} from "./api.service"
+import {ApiService} from './api.service';
 
 @Component({
   selector: 'createTeam',
@@ -23,8 +23,8 @@ import {ApiService} from "./api.service"
 })
 export class CreateTeamComponent {
   constructor(public apiService: ApiService){}
-  teamData = {}
-  createTeam(){
+  teamData:any;
+  createTeam() {
     this.apiService.createTeam(this.teamData);
   }
 }
