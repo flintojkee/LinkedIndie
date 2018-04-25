@@ -4,7 +4,7 @@ let User = require('../models/User');
 
 exports.login = async (req, res) => {
         let loginData = req.body;
-
+        console.log(req.body);
         let  user = await User.findOne({email: loginData.email});
 
         if (!user)

@@ -10,16 +10,28 @@ import { ActivatedRoute } from "@angular/router"
 export class TeamComponent {
   constructor(public apiService: ApiService, public route: ActivatedRoute){}
 
-  team: any;
-  teamLead:any;
+  public team:  Team = new Team();
+  public teamLead:  TeamLead = new TeamLead();
 
   ngOnInit(){
-    let id = this.route.snapshot.params.id;
+  let id = this.route.snapshot.params.id;
+
     this.apiService.getTeam(id).subscribe(data => {
       this.team = data;
       let teamLeadId = this.team.teamLead;
       this.apiService.getProfile(teamLeadId).subscribe(data => this.teamLead = data);
     });
-
   }
+}
+
+export class Team{
+  constructor(public teamTitle?: string,
+              public description?: string,
+              public teamLead?:string
+  ) { }
+
+}
+
+export class TeamLead {
+  constructor(public name?: string) { }
 }

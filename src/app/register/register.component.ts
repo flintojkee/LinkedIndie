@@ -18,8 +18,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: 'register.component.html',
   styleUrls: ['register.component.css']
 })
+
 export class RegisterComponent {
-  registerData :any;
 
   constructor(public authService: AuthService, public snackBar: MatSnackBar) {
   }
@@ -27,6 +27,7 @@ export class RegisterComponent {
   openSnackBar() {
     this.snackBar.open('Message archived');
   }
+  public registerData: RegisterData = new RegisterData();
   post() {
     console.log(this.registerData);
     this.authService.registerUser(this.registerData);
@@ -67,5 +68,14 @@ export class RegisterComponent {
   matcher = new MyErrorStateMatcher();
 }
 
+export class RegisterData {
 
+  constructor(public email?: string,
+              public pwd?: string,
+              public name?:string,
+              public roles?:Array<string>,
+              public description?:string
+  ) { }
+
+}
 

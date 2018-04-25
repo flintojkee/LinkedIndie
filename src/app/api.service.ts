@@ -39,7 +39,7 @@ export class ApiService {
   }
 
   getProfile(id){
-    return this.http.get('/profile/'+id)
+    return this.http.get('/api/profile/'+id)
   }
 
   getTeam(id){

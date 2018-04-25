@@ -3,52 +3,50 @@ const postCtrl = require('../controllers/postCtrl');
 const teamCtrl = require('../controllers/teamCtrl');
 const requestCtrl = require('../controllers/requestCtrl');
 const auth = require('./auth');
-
+const express = require('express');
+const router = express.Router();
 let User = require('../models/User');
 
-module.exports = function (app) {
-    app.get('/api/posts/:id', postCtrl.getPosts);
 
-    app.post('/api/post', auth.checkAuthenticated,  postCtrl.sendPost);
+  router.get('/posts/:id', postCtrl.getPosts);
 
-    app.post('/api/team', auth.checkAuthenticated, teamCtrl.createTeam);
+  router.post('/post', auth.checkAuthenticated,  postCtrl.sendPost);
 
-    app.post('/api/sendTeamRequest', requestCtrl.sendTeamRequest);
+  router.post('/team', auth.checkAuthenticated, teamCtrl.createTeam);
 
-    app.put('/api/updateTeamRequest', requestCtrl.updateTeamRequest);
+  router.post('/sendTeamRequest', requestCtrl.sendTeamRequest);
 
-    app.post('/api/sendUserRequest', requestCtrl.sendUserRequest);
+  router.put('/updateTeamRequest', requestCtrl.updateTeamRequest);
+
+  router.post('/sendUserRequest', requestCtrl.sendUserRequest);
 
    //app.put('/api/updateUserRequest/:id', requestCtrl.updateUserRequest);
 
-    app.get('/api/teams',teamCtrl.getTeams);
+  router.get('/teams',teamCtrl.getTeams);
 
-    app.get('/api/teamsHiring',teamCtrl.getHiring);
-    app.get('/api/teamsFinished',teamCtrl.getFinished);
+  router.get('/teamsHiring',teamCtrl.getHiring);
+  router.get('/teamsFinished',teamCtrl.getFinished);
 
-    app.get('/api/team/:id', teamCtrl.getTeam);
+  router.get('/team/:id', teamCtrl.getTeam);
 
-    app.get('/api/users',userCtrl.getUsers);
+  router.get('/users',userCtrl.getUsers);
 
-    app.get('/api/getCoders',userCtrl.getCoders);
-    app.get('/api/getArtists',userCtrl.getArtists);
-    app.get('/api/getSounds',userCtrl.getSounds);
-    app.get('/api/getLeads',userCtrl.getTeamleads);
+  router.get('/getCoders',userCtrl.getCoders);
+  router.get('/getArtists',userCtrl.getArtists);
+  router.get('/getSounds',userCtrl.getSounds);
+  router.get('/getLeads',userCtrl.getTeamleads);
 
-    app.get('/profile/:id', userCtrl.getUserProfile);
+  router.get('/profile/:id', userCtrl.getUserProfile);
 
-    app.post('/register',auth.register);
+  router.post('/register',auth.register);
 
-    app.post('/login',auth.login);
+  router.post('/login',auth.login);
 
-    app.put('/updateUser/:id', userCtrl.updateUser);
+  router.put('/updateUser/:id', userCtrl.updateUser);
 
-    app.put('/updateTeam/:id', teamCtrl.updateTeam);
+  router.put('/updateTeam/:id', teamCtrl.updateTeam);
 
-    app.get('/*', function(req,res) {
-        res.sendFile(path.join(__dirname+'/dist/index.html'));
-    });
-   app.all('/api/*', function (req, res) {
+  router.all('/*', function (req, res) {
         res.sendStatus(404);
     });
-};
+module.exports = router;
