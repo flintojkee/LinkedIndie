@@ -10,39 +10,39 @@ export class ApiService {
   constructor (private http: HttpClient){}
 
   getMessages(userId){
-    this.http.get<any>('http://localhost:8080/api/posts/'+userId).subscribe(res => {
+    this.http.get<any>('http://localhost:80/api/posts/'+userId).subscribe(res => {
       this.messages = res;
     });
   }
   postMessage(message){
-    this.http.post('http://localhost:8080/api/post', message).subscribe(res => {
+    this.http.post('http://localhost:80/api/post', message).subscribe(res => {
 
     });
   }
 
   createTeam(teamData){
-    this.http.post('http://localhost:8080/api/team', teamData).subscribe(res => {
+    this.http.post('http://localhost:80/api/team', teamData).subscribe(res => {
 
     });
   }
 
   getUsers(){
-    this.http.get<any>('http://localhost:8080/api/users').subscribe(res => {
+    this.http.get<any>('http://localhost:80/api/users').subscribe(res => {
       this.users = res;
     });
   }
 
   getTeams(){
-    this.http.get<any>('http://localhost:8080/api/teams').subscribe(res => {
+    this.http.get<any>('http://localhost:80/api/teams').subscribe(res => {
       this.teams = res;
     });
   }
 
   getProfile(id){
-    return this.http.get('http://localhost:8080/profile/'+id)
+    return this.http.get('http://localhost:80/profile/'+id)
   }
 
   getTeam(id){
-    return this.http.get('http://localhost:8080/api/team/'+id)
+    return this.http.get('http://localhost:80/api/team/'+id)
   }
 }
