@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 
 const api = require('./config/routes');
 
