@@ -16,7 +16,7 @@ import {ApiService} from "../api.service"
 })
 export class TeamSearchComponent {
 
-  constructor(private apiService: ApiService){}
+  constructor(public apiService: ApiService){}
 
   ngOnInit(){
     this.apiService.getTeams();

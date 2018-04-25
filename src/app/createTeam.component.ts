@@ -22,8 +22,8 @@ import {ApiService} from "./api.service"
   `
 })
 export class CreateTeamComponent {
-  constructor(private apiService: ApiService){}
-  teamData = {};
+  constructor(public apiService: ApiService){}
+  teamData: any;
   createTeam(){
     this.apiService.createTeam(this.teamData);
   }

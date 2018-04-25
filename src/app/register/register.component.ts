@@ -19,9 +19,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['register.component.css']
 })
 export class RegisterComponent {
-  registerData = {};
+  registerData: any;
 
-  constructor(private authService: AuthService, public snackBar: MatSnackBar) {
+  constructor(public authService: AuthService, public snackBar: MatSnackBar) {
   }
 
   openSnackBar() {

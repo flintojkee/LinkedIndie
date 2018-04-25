@@ -8,9 +8,9 @@ import { ActivatedRoute } from "@angular/router"
   styleUrls: ['profile.component.css']
 })
 export class ProfileComponent {
-  constructor(private apiService: ApiService, private route: ActivatedRoute){}
+  constructor(public apiService: ApiService, public route: ActivatedRoute) {}
 
-  profile;
+  profile: any;
   ngOnInit(){
     let id = this.route.snapshot.params.id;
     this.apiService.getProfile(id).subscribe(data =>

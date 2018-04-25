@@ -11,11 +11,11 @@ export class AuthService {
 
   TOKEN_KEY = 'token';
 
-  constructor (private http: HttpClient,public snackBar: MatSnackBar){}
+  constructor (public http: HttpClient,public snackBar: MatSnackBar){}
 
 
   registerUser(registerData){
-    this.http.post<any>('http://localhost:3000/register',registerData)
+    this.http.post<any>('http://localhost:80/register',registerData)
       .pipe(
         catchError(this.handleError)
       )
@@ -43,7 +43,7 @@ export class AuthService {
   }
 
   loginUser(loginData){
-    this.http.post<any>('http://localhost:3000/login',loginData)
+    this.http.post<any>('http://localhost:80/login',loginData)
       .subscribe(res => {
       this.saveToken(res.token);
       this.saveId(res.userId);

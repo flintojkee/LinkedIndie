@@ -9,7 +9,7 @@ import {ApiService} from "../api.service"
 export class UserSearchComponent {
   title = 'app';
 
-  constructor(private apiService: ApiService){}
+  constructor(public apiService: ApiService){}
 
   ngOnInit(){
     this.apiService.getUsers();

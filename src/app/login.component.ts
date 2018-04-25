@@ -24,8 +24,8 @@ import {AuthService} from "./auth.service";
   styleUrls:['../assets/main.css']
 })
 export class LoginComponent {
-  loginData = {};
-  constructor(private apiService: AuthService){}
+  loginData : any;
+  constructor(public apiService: AuthService){}
   login(){
     console.log(this.loginData);
     this.apiService.loginUser(this.loginData);

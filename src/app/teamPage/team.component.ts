@@ -8,10 +8,10 @@ import { ActivatedRoute } from "@angular/router"
   styleUrls:["../../assets/main.css"]
 })
 export class TeamComponent {
-  constructor(private apiService: ApiService, private route: ActivatedRoute){}
+  constructor(public apiService: ApiService, public route: ActivatedRoute){}
 
-  team;
-  teamLead;
+  team: any;
+  teamLead: any;
 
   ngOnInit(){
     let id = this.route.snapshot.params.id;

@@ -7,7 +7,7 @@ export class ApiService {
   users = [];
   teams = [];
 
-  constructor (private http: HttpClient){}
+  constructor (public http: HttpClient){}
 
   getMessages(userId){
     this.http.get<any>('http://localhost:80/api/posts/'+userId).subscribe(res => {
