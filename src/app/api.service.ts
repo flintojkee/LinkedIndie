@@ -54,7 +54,7 @@ export class ApiService {
   }
 
   updateTeamRequest(data){
-    this.http.put('/updateTeamRequest', data).subscribe(res => {
+    this.http.put('/api/updateTeamRequest', data).subscribe(res => {
     });
   }
 }
