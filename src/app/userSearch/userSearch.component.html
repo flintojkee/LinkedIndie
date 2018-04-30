@@ -1,14 +1,15 @@
-<div class="us-main-block row  ">
-
+<div class="us-main-block row  " style="padding-left: 20px; margin-bottom: 20px;">
+  <div class="col-1"></div>
   <div class="col-4 search-options rounded-top">
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+
+      <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="foundUser">
       <div class="input-group-append">
-        <button class="btn btn-outline-warning" type="button">Search</button>
+        <button class="btn btn-outline-warning" type="button" (click)='performNameFilter();'>Search</button>
       </div>
     </div>
 
-    <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
+    <!-- <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
       <label class="btn btn-warning active">
         <input type="checkbox" name="options" id="option1" autocomplete="off" checked> filter1
       </label>
@@ -18,23 +19,32 @@
       <label class="btn btn-warning">
         <input type="checkbox" name="options" id="option3" autocomplete="off"> filter3
       </label>
-    </div>
+    </div> -->
+    <mat-radio-group>
+      <mat-radio-button value="1" (click)='getAllUsers()'>All</mat-radio-button>
+      <mat-radio-button value="1" (click)='performFilter("Programmer")'>Programmer</mat-radio-button>
+      <mat-radio-button value="2" (click)='performFilter("Artist")'>Artist</mat-radio-button>
+      <mat-radio-button value="3" (click)='performFilter("Game developer")'>Game developer</mat-radio-button>
+      <mat-radio-button value="4" (click)='performFilter("Musician")'>Musician</mat-radio-button>
+
+    </mat-radio-group>
   </div>
 
   <!--PANELS WITH USERS -->
-  <div class="col-7 users-list" *ngFor="let user of apiService.users">
+  <div class="col-6 users-list" style="margin-top:30px;">
 
-    <div class="user-panel border border-dark rounded ">
+    <div class="user-panel border border-dark rounded "  *ngFor="let user of filteredUsers">
       <div class="user-panel-top row justify-content-between">
-        <div class="col-4"><img class=" mr-3 rounded" src="../../assets/images/avatar.jpg" alt="Generic placeholder image">
+        <div class="col-4">
           <span class="us-username"[routerLink]="['/profile', user._id]" style="cursor: pointer;">{{user.name}}</span></div>
 
-        <button type="button" class="btn btn-warning btn-sm col-2 ">Message</button>
+          <button mat-raised-button class="red-button col-2">Message</button>
+
       </div>
       <div class="role">
-        <div class="border border-dark rounded "*ngFor="let role of user.roles"><span class="label rounded-left" >Role:</span><span class="p-info"> {{role}}</span></div>
+        <div class="border-bottom border-dark rounded "*ngFor="let role of user.roles" style="margin-top: 6px; margin-bottom: 4px; margin-left: 3px; margin-right: 3px;"><span class="label rounded-left">Role:</span><span class="p-info"> {{role}}</span></div>
       </div>
     </div>
-
   </div>
+  <div class="col-1"></div>
 </div>

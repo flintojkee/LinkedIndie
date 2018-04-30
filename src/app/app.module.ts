@@ -27,9 +27,12 @@ import {PostComponent} from "./post.component";
 import {CreateTeamComponent} from "./createTeam.component"
 import {AuthInterceptorService} from "./authInterceptor.service"
 import {TeamComponent} from "./teamPage/team.component";
+import {MainPageComponent} from "./mainPage/mainPage.component";
+import {FooterComponent} from './footer.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 const routes = [
-  {path: '', component: PostComponent},
+  {path: '', component: MainPageComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'users', component: UserSearchComponent},
@@ -50,7 +53,9 @@ const routes = [
     TeamComponent,
     ProfileComponent,
     CreateTeamComponent,
-    PostComponent
+    PostComponent,
+    MainPageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,8 @@ const routes = [
     BrowserAnimationsModule,
     MatListModule,
     MatSelectModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatRadioModule
   ],
   providers: [ApiService, AuthService, {
     provide:HTTP_INTERCEPTORS,

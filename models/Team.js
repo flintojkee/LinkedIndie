@@ -6,17 +6,13 @@ let teamSchema = new mongoose.Schema( {
     description:String,
     dateTime: Date,
     requests: [{
+        _id:false,
         user:String,
         status:Boolean
     }],
-    teammates: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }],
     teamLead: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-
     areHiring: {type: Boolean},
-    finishedProject: {type: Boolean}
+    active: {type: Boolean}
 });
 teamSchema.plugin(uniqueValidator, {message: 'is already taken.'});
 module.exports = mongoose.model('Team', teamSchema);

@@ -1,0 +1,47 @@
+.team-name-block{
+   padding-top: 80px;
+}
+.team-name{
+    padding: 15px;
+    font-size: 32px;
+    margin:10px;
+}
+.team-description {
+    margin:10px;
+    padding:10px;
+}
+
+.team-lead-panel{
+    margin:10px;
+}
+
+.requests-panel{
+    margin:10px;
+    font-size: 12px !important;
+    padding: 10px;
+}
+.one-request-panel{
+padding: 5;
+margin-bottom:10px;
+}
+.one-request-panel .row{
+    margin-left:15px;
+    margin-right:15px;
+}
+.one-request-panel .role div .label{
+    font-size: 12px;
+}
+.one-request-panel .role div .p-info{
+    font-size: 10px;
+}
+
+.teammates-panel{
+margin:10px;
+}
+.teammate{
+    padding: 10px;
+    margin:10px;
+}
+.teammate-name{
+    font-size: 10px;
+}

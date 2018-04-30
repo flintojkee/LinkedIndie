@@ -1,41 +1,38 @@
-<div class="ts-main-block row  ">
+<div class="ts-main-block row  " style="padding-left: 20px; margin-bottom: 20px;">
+  <div class="col-1"></div>
   <div class="col-4 search-options rounded-top">
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <input [(ngModel)]="foundTeam" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
       <div class="input-group-append">
-        <button class="btn btn-outline-warning" type="button">Search</button>
+        <button class="btn btn-outline-warning btn-anglain" type="button" (click)="performNameFilter()">Search</button>
       </div>
     </div>
 
-    <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-warning active">
-        <input type="checkbox" name="options" id="option1" autocomplete="off" checked> filter1
-      </label>
-      <label class="btn btn-warning">
-        <input type="checkbox" name="options" id="option2" autocomplete="off"> filter2
-      </label>
-      <label class="btn btn-warning">
-        <input type="checkbox" name="options" id="option3" autocomplete="off"> filter3
-      </label>
-    </div>
-  </div>
+    <mat-radio-group>
+      <mat-radio-button value="1">Filter 1</mat-radio-button>
+      <mat-radio-button value="2">Filter 2</mat-radio-button>
+      <mat-radio-button value="3">Filter 3</mat-radio-button>
+      <mat-radio-button value="4">Filter 4</mat-radio-button>
 
+    </mat-radio-group>
+  </div>
   <!--PANELS WITH TEAMS -->
 
-  <div class="col-7 teams-list">
+  <div class="col-6 teams-list" style="margin-bottom: 20px; margin-top:30px;">
 
-    <div *ngFor="let team of apiService.teams" class="team-panel border border-dark rounded ">
+    <div *ngFor="let team of filteredTeams" class="team-panel border border-dark rounded ">
       <div class="team-panel-top row justify-content-between">
-        <div class="col-4"><img class=" mr-3 rounded" alt="Generic placeholder image">
+        <div class="col-4">
           <span class="ts-name" [routerLink]="['/team', team._id]" style="cursor: pointer">{{team.teamTitle}}</span></div>
 
-        <button type="button" class="btn btn-warning btn-sm col-2 ">Apply</button>
+
+          <button mat-raised-button class="red-button col-2" (click)="sendTeamRequest(team._id, authService.userId)">Apply</button>
       </div>
       <div class="team-about border-bottom border-dark"> About:
         <div>{{team.description}}</div>
       </div>
       <div class="roles-needed">
-        <span class="">Roles needed: </span>
+        <span class="" style="font-size: 16px;">Roles needed: </span>
         <div class="roles-list row justify-content-center">
 
           <div class="skill-sm col-2 border rounded">
@@ -71,4 +68,5 @@
     </div>
 
   </div>
+  <div class="col-1"></div>
 </div>

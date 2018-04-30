@@ -10,6 +10,6 @@ module.exports = {
     production:{
         rootPath:rootPath,
         db:'mongodb://test:test@ds129939.mlab.com:29939/linkedindie',
-        port:process.env.PORT || 80
+        port:process.env.PORT || 8080
     }
 };

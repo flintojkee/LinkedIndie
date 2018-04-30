@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ApiService} from "../api.service"
+import {AuthService} from "../auth.service";
 
 @Component({
   selector: 'teams',
@@ -15,10 +16,25 @@ import {ApiService} from "../api.service"
   styleUrls:["../../assets/main.css"]
 })
 export class TeamSearchComponent {
+  foundTeam = '';
 
-  constructor(public apiService: ApiService){}
+  teams;
+  filteredTeams;
+
+  constructor(public apiService: ApiService, public authService:AuthService){}
 
   ngOnInit(){
     this.apiService.getTeams();
+    this.teams = this.apiService.teams;
+    this.filteredTeams = this.apiService.teams;
+    console.log(this.teams);
+  }
+
+  performNameFilter(){
+    console.log(this.foundTeam);
+    this.filteredTeams = this.teams.filter((req:any) => (req.teamTitle.includes(this.foundTeam)));
+  }
+  sendTeamRequest(teamId,userId){
+    this.apiService.sendTeamRequest({teamId:teamId, userId:userId} );
   }
 }

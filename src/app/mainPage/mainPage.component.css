@@ -1,0 +1,32 @@
+.gif{
+
+    margin-top:100px;
+}
+
+.row1{
+    font-family: PeaceSans;
+    font-size: 100px;
+    padding:200px;
+    padding-top:10px;
+    padding-bottom:0;
+    line-height: 90px;
+    margin-top:30px;
+
+}
+.row2{
+    font-family: PeaceSans;
+    font-size: 70px;
+    padding:200px;
+    padding-top:10px;
+    padding-bottom:0;
+    line-height: 90px;
+    background-color: #232323;
+    margin-top:50px;
+
+}
+
+.mp-button{
+font-size: 36px;
+font-weight: 800;
+padding:10px;
+}

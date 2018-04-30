@@ -1,14 +1,69 @@
 
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title><h4>Team</h4></mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-list>
-          <mat-list-item>Name: {{team?.teamTitle}}</mat-list-item>
-          <mat-list-item>Description: {{team?.description}}</mat-list-item>
-          <mat-list-item>Team Lead {{teamLead?.name}}</mat-list-item>
-        </mat-list>
-      </mat-card-content>
-    </mat-card>
+<div class="container-fluid">
 
+    <div class="row team-name-block text-center">
+      <div class="team-name col align-self-center border border-dark rounded font-weight-bold text-uppercase  "> {{team?.teamTitle}}</div></div>
+
+      <div class="row justify-content-between">
+        <div class="team-description col-7 border border-dark rounded">
+          <div class="border-bottom border-dark p-1 ">Description</div>
+          <div>{{team?.description}}</div>
+          </div>
+<!--
+        <div class="team-lead-panel col-4 border border-dark rounded text-center pt-2"> Team Lead {{teamLead?.name}}</div>  -->
+        <!-- for teamleados -->
+          <div class="requests-panel col-4 border border-dark rounded" *ngIf="authService.isTeamLead(teamLead)">
+
+
+            <!--single request-->
+            <ng-container *ngFor="let request of team.requests">
+              <div class="one-request-panel border border-dark rounded "  *ngIf="!request.status">
+                  <div class=" row justify-content-between p-2 border-bottom border-dark">
+                    <div class="col-4">
+                      <span class="request-username">{{request.userProfile?.name}}</span></div>
+
+                      <button mat-raised-button class="gray-button col-2" (click)="updateTeamRequset(team._id,request.user,false)">Decline</button>
+
+                      <button mat-raised-button class="red-button col-2" (click)="updateTeamRequset(team._id,request.user,true)">Accept</button>
+                  </div>
+                  <div class="role" *ngFor="let role of request.userProfile?.roles">
+                    <div class=""><span class="label rounded-left" >Role:</span><span class="p-info">{{role}}</span></div>
+                  </div>
+                </div>
+            </ng-container>
+
+
+                <!--<div class="one-request-panel border border-dark rounded ">
+                    <div class=" row justify-content-between p-2 border-bottom border-dark">
+                      <div class="col-4">
+                        <span class="request-username">Username placeholder</span></div>
+
+                        <button mat-raised-button class="gray-button col-2">Decline</button>
+
+                        <button mat-raised-button class="red-button col-2">Accept</button>
+                    </div>
+                    <div class="role">
+                      <div class=""><span class="label rounded-left" >Role:</span><span class="p-info">role placeholder</span></div>
+                    </div>
+                  </div>-->
+
+          </div>
+
+      </div>
+
+      <div class="teammates-panel row border rounded border-dark text-center">
+      <div class="col align-self-center border-bottom border-dark">Teammates</div>
+        <div class="teammates-list container-fluid">
+          <div class="row">
+            <ng-container *ngFor="let teammate of team.requests">
+          <div class="teammate col-1 border rounded" *ngIf="teammate?.status">
+            <div style="text-align: center;" >
+              <i class="fab fa-python fa-5x"></i>
+              <div class="teammate-name">{{teammate.userProfile?.name}}</div>
+            </div>
+          </div>
+            </ng-container>
+        </div>
+      </div>
+</div>
+</div>

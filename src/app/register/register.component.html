@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card style="width: 800px; margin-left: auto; margin-right: auto; padding-top: 84px;">
   <mat-card-header>
     <mat-card-title>
       <h4>Register New User</h4>
@@ -48,9 +48,8 @@
       <br>
       <mat-input-container style="width: 100%"><textarea [(ngModel)]="registerData.description" name="description" matInput placeholder="description">
       </textarea></mat-input-container><br>
-      <button [disabled]="!isValidForm()" (click)="post()" (click)="openSnackBar()" mat-raised-button color="primary" routerLink="/">Register</button>
+      <button [disabled]="!isValidForm()" (click)="post()" mat-raised-button color="primary" routerLink="/">Register</button>
     </form>
   </mat-card-content>
 </mat-card>
-
 

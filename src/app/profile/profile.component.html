@@ -1,5 +1,5 @@
 <!--   Here is a left-bar menu of the user -->
-<div class=" col left-bar position-fixed">
+<!--<div class=" col left-bar position-fixed" *ngIf="authService.isAuthenticated" >
   <div class="row top"></div>
 
   <div class="row cur-project">
@@ -12,23 +12,22 @@
   <div class="row logout">
     <button type="button" class=" btn  btn-outline-dark btn-sm">logout</button></div>
 
-</div>
+</div>-->
 
 <div class="container-fluid up-container">
 
   <!-- Here is the main part of users page -->
-  <div class="container-fluid">
+  <div class="container-fluid" style="margin-left: auto; margin-right: auto; padding-top: 30px;">
     <div class="row">
-
       <div class = " main-block col">
         <div class="row">
           <div class="col avatar-block ">
-            <img src="../../assets/images/shrooms.jpg" class="img-fluid rounded-top" alt="Responsive image">
+            <img src="../../assets/images/logo_circle_dark_gray.png" style="margin-left: auto; margin-right: auto;">
           </div>
         </div>
 
         <div class="user-title  border border-dark rounded-bottom">
-          <div>  <span class="user-name"> Paranoid Android</span><span class="online">online <i class="fas fa-circle fa-xs"></i></span></div>
+          <div>  <span class="user-name">{{profile?.name}}</span><span class="online">online <i class="fas fa-circle fa-xs"></i></span></div>
           <div class="user-signature"> When I am king, you will be first against the wall</div>
         </div>
 
@@ -44,8 +43,9 @@
             </div>
             <div class="border border-dark rounded about">
             <mat-card>
+              <post class="remove-underline"></post>
               <mat-card-header>
-                <mat-card-title><h4>Posts</h4></mat-card-title>
+                <mat-card-title><h4>All posts</h4></mat-card-title>
               </mat-card-header>
               <mat-card-content>
                 <messages-root></messages-root>
@@ -61,7 +61,7 @@
               <div style="text-align: center;"> <span class="pr-title rounded-top">Completed projects</span></div>
               <ul class="list-group list-group-flush pr-list">
                 <li class="list-group-item border-0" >The adventures of a potato</li>
-                <li class="list-group-item border-0">God of war. Fan-game</li>
+                <li class="list-group-item border-0">God of Soy. Fan-game</li>
                 <li class="list-group-item border-0">Laba #7</li>
               </ul>
             </div>
@@ -146,17 +146,7 @@
           </div>
         </div>
       </div>
-
     </div>
-  </div>
-
-  <!--FOOTER-->
-  <!--pretty raw-->
-
-  <div class="footer container-fluid " style="color:white">
-    Contact us
-    <i class="fab fa-telegram" ></i> <i class="fab fa-discord"></i>
-    <i class="fas fa-envelope"></i>
   </div>
 </div>
 <!-- Optional JavaScript -->

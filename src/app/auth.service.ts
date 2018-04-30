@@ -33,6 +33,11 @@ export class AuthService {
     return localStorage.getItem('userId');
   }
 
+  isTeamLead(teamLeadId){
+    let userId = localStorage.getItem('userId');
+    return userId === teamLeadId;
+  }
+
   get isAuthenticated(){
     return localStorage.getItem(this.TOKEN_KEY);
   }

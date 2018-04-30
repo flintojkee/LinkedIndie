@@ -24,9 +24,6 @@ export class RegisterComponent {
   constructor(public authService: AuthService, public snackBar: MatSnackBar) {
   }
 
-  openSnackBar() {
-    this.snackBar.open('Message archived');
-  }
   public registerData: RegisterData = new RegisterData();
   post() {
     console.log(this.registerData);
