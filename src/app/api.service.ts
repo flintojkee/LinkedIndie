@@ -1,5 +1,9 @@
 import {HttpClient} from "@angular/common/http"
 import {Injectable} from "@angular/core"
+import { map, tap } from "rxjs/operators";
+
+import { Team } from "./teamPage/team.component";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class ApiService {
@@ -35,21 +39,25 @@ export class ApiService {
   }
 
   getTeams() {
-    this.http.get<any>('/api/teams').subscribe(res => {
-      this.teams = res;
-    });
+    return this.http.get<any>('/api/teams');
   }
 
   getProfile(id) {
     return this.http.get('/api/profile/' + id);
   }
 
-  getTeam(id) {
-    return this.http.get('/api/team/' + id);
+  getTeam(id):Observable<Team> {
+    return this.http.get<any>('/api/team/' + id).pipe(
+      map(res => {
+      console.log(res)
+      return res
+      }
+    ))
   }
 
   sendTeamRequest(teamId){
     this.http.post('/api/sendTeamRequest', teamId).subscribe(res => {
+      console.log(res)
     });
   }
 

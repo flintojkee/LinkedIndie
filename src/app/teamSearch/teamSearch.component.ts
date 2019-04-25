@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ApiService} from "../api.service"
 import {AuthService} from "../auth.service";
+import { takeWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'teams',
@@ -20,16 +21,22 @@ export class TeamSearchComponent {
 
   teams;
   filteredTeams;
+  alive: boolean;
 
   constructor(public apiService: ApiService, public authService:AuthService){}
 
   ngOnInit(){
-    this.apiService.getTeams();
-    this.teams = this.apiService.teams;
-    this.filteredTeams = this.apiService.teams;
-    console.log(this.teams);
+    this.alive = true;
+    this.apiService.getTeams().pipe(
+      takeWhile(()=> this.alive)
+    ).subscribe(res => {
+      this.teams = res;
+      this.filteredTeams = this.teams;
+    })
   }
-
+  ngOnDestroy() {
+    this.alive = false;
+  }
   performNameFilter(){
     console.log(this.foundTeam);
     this.filteredTeams = this.teams.filter((req:any) => (req.teamTitle.includes(this.foundTeam)));
