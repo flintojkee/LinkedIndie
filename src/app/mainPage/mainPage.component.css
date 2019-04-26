@@ -25,8 +25,14 @@
 
 }
 
+.edit-width{
+    width: 250px;
+    padding-top: 50px;
+    margin: 0 auto;
+}
+
 .mp-button{
 font-size: 36px;
 font-weight: 800;
-padding:10px;
+padding: 15px;
 }

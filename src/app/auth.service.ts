@@ -4,14 +4,15 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import {MatSnackBar} from '@angular/material';
-import {catchError} from 'rxjs/operators';
-import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
+import {catchError} from "rxjs/operators";
+import {ErrorObservable} from "rxjs/observable/ErrorObservable";
+import { Router } from "@angular/router";
 @Injectable()
 export class AuthService {
 
   TOKEN_KEY = 'token';
 
-  constructor (public http: HttpClient,public snackBar: MatSnackBar){}
+  constructor (private router: Router, public http: HttpClient,public snackBar: MatSnackBar){}
 
 
   registerUser(registerData){
@@ -22,6 +23,7 @@ export class AuthService {
       .subscribe(res => {
       this.saveToken(res.token);
       this.saveId(res.userId);
+      this.router.navigate(['/profile', res.userId]);
       })
   }
 
@@ -45,6 +47,7 @@ export class AuthService {
   logout(){
     localStorage.removeItem(this.TOKEN_KEY);
     localStorage.removeItem('userId');
+    this.router.navigate(['/']);
   }
 
   loginUser(loginData){
@@ -53,6 +56,7 @@ export class AuthService {
       .subscribe(res => {
       this.saveToken(res.token);
       this.saveId(res.userId);
+      this.router.navigate(['/profile', res.userId]);
     });
   }
 
