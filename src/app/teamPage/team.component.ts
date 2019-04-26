@@ -22,7 +22,7 @@ export class TeamComponent {
     ngOnInit(){
     let id = this.route.snapshot.params.id;
     this.alive = true;
-    this.apiService.getTeam(id).pipe(takeWhile(() => this.alive)).subscribe(res => 
+    this.apiService.getTeam(id).pipe(takeWhile(() => this.alive)).subscribe(res =>
       {
         this.team = res
         this.authService.isTeamLead(this.team.teamLead);
@@ -31,13 +31,21 @@ export class TeamComponent {
         })
         const source = Observable.of(...users);
         const exampleOne = source.concatMap(val => this.apiService.getProfile(val));
-        //output: 'Example One: 'Hello World', Example One: 'Goodbye World'
         exampleOne.subscribe(val => {
           this.requests.push(val);
           console.log(this.requests)
         });
 
       });
+  }
+  getUserName(id){
+    debugger
+    if(this.requests.length) {
+      const user = this.requests.find(a => a._id === id);
+      return user.name;
+    } else {
+      return ''
+    }
   }
   updateTeamRequset(teamId, userId, status){
     let data = {teamId:teamId, userId:userId, status:status};

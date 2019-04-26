@@ -33,9 +33,7 @@ export class ApiService {
   }
 
   getUsers() {
-    this.http.get<any>('/api/users').subscribe(res => {
-      this.users = res;
-    });
+    return this.http.get<any>('/api/users');
   }
 
   getTeams() {
@@ -61,8 +59,9 @@ export class ApiService {
     });
   }
 
-  updateTeamRequest(data){
+  updateTeamRequest(data) {
     this.http.put('/api/updateTeamRequest', data).subscribe(res => {
+      console.log(res);
     });
   }
 }

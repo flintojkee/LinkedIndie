@@ -1,5 +1,5 @@
 
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="requests.length">
 
     <div class="row team-name-block text-center">
       <div class="team-name col align-self-center border border-dark rounded font-weight-bold text-uppercase  "> {{team?.teamTitle}}</div>
@@ -10,20 +10,20 @@
           <div>{{team?.description}}</div>
           </div>
 
-          <div class="requests-panel col-4 border border-dark rounded" *ngIf="isTeamlead">
+          <div class="requests-panel col-4 border border-dark rounded" *ngIf="isTeamlead && requests.length">
 
 
-            <ng-container *ngFor="let request of team.requests">
+            <ng-container *ngFor="let request of requests">
               <div class="one-request-panel border border-dark rounded "  *ngIf="!request.status">
                   <div class=" row justify-content-between p-2 border-bottom border-dark">
                     <div class="col-4">
-                      <span class="request-username">{{request.userProfile?.name}}</span></div>
+                      <span class="request-username">{{request?.name}}</span></div>
 
-                      <button mat-raised-button class="gray-button col-2" (click)="updateTeamRequset(team._id,request.user,false)">Decline</button>
+                      <button mat-raised-button class="gray-button col-2" (click)="updateTeamRequset(team._id,request._id,false)">Decline</button>
 
-                      <button mat-raised-button class="red-button col-2" (click)="updateTeamRequset(team._id,request.user,true)">Accept</button>
+                      <button mat-raised-button class="red-button col-2" (click)="updateTeamRequset(team._id,request._id,true)">Accept</button>
                   </div>
-                  <div class="role" *ngFor="let role of request.userProfile?.roles">
+                  <div class="role" *ngFor="let role of request.roles">
                     <div class=""><span class="label rounded-left" >Role:</span><span class="p-info">{{role}}</span></div>
                   </div>
                 </div>
@@ -34,17 +34,17 @@
 
       <div class="teammates-panel row border rounded border-dark text-center">
       <div class="col align-self-center border-bottom border-dark">Teammates</div>
-        <div class="teammates-list container-fluid">
+        <div *ngIf="requests.length" class="teammates-list container-fluid">
           <div class="row">
-            <ng-container *ngFor="let teammate of requests">
+            <ng-container *ngFor="let teammate of team?.requests">
           <div class="teammate col-1 border rounded" *ngIf="teammate?.status">
             <div style="text-align: center;" >
               <i class="fab fa-python fa-5x"></i>
-              <div class="teammate-name">{{teammate.userProfile?.name}}</div>
+              <div class="teammate-name">{{getUserName(teammate.user)}}</div>
             </div>
           </div>
             </ng-container>
         </div>
       </div>
-</div> 
+</div>
 </div>

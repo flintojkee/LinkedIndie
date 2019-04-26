@@ -14,10 +14,11 @@ export class UserSearchComponent {
   filteredUsers;
   constructor(public apiService: ApiService){}
 
-  ngOnInit(){
-    this.apiService.getUsers();
-    this.users = this.apiService.users;
-    this.filteredUsers = this.apiService.users;
+  ngOnInit (){
+    this.apiService.getUsers().subscribe(res => {
+      this.users = res;
+      this.filteredUsers =  this.users;
+    })
   }
 
   getAllUsers(){
